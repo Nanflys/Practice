@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.content{
+			width:500px;
+			/*height:150px;*/
+			background:#656565;
+			margin:0 auto;
+			padding-top:50px;
+		}
+		.text{
+			padding:20px;
+		}
+		.info{
+			display:inline-block;
+			padding-right:50px;
+			height:60px;
+			font:20px/60px "微软雅黑";
+			text-indent:1em;
+			background:#454545;
+			border-bottom:1px dashed #fff;
+		}
+		.btn{
+			display:inline-block;
+			width:24px;
+			height:24px;
+			background:url(c.png) no-repeat;
+			margin-left:50px;
+		}
+		.text_i{
+			display:none;
+			height:60px;
+		}
+		input{
+			height:40px;
+			padding-left:10px;
+		}
+		button{
+			height:40px;
+			padding:0 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<div class="text">
+			<div class="wrap">
+				<p class="info">欢迎来到</p>
+				<a href="javascript:;" class="btn"></a>
+			</div>
+			<div class="text_i">
+				<input type="text">
+				<button class="sure">确定</button>
+				<button class="cancle">取消</button>
+			</div>
+		</div>
+		<div class="text">
+			<div class="wrap">
+				<p class="info">欢迎来到</p>
+				<a href="javascript:;" class="btn"></a>
+			</div>
+			<div class="text_i">
+				<input type="text">
+				<button class="sure">确定</button>
+				<button class="cancle">取消</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		var text = document.querySelectorAll('.text');
+
+
+		change(0);
+		change(1);
+		function change(index){
+			var btn = text[index].querySelector('.btn');
+			var wrap = text[index].querySelector('.wrap');
+			var text1 = text[index].querySelector('.text_i');
+			var info = text[index].querySelector('.info');
+			var input = text[index].querySelector('.text_i input');
+
+			btn.onclick = function(){
+				input.value = info.innerHTML;
+				wrap.style.display = 'none';
+				text1.style.display = 'block';
+				input.select();
+			};
+			var sure = text[index].querySelector('.sure');
+			var cancle = text[index].querySelector('.cancle');
+
+			sure.onclick = function(){
+				if(input.value === ''){
+					alert('输入内容不能为空')
+				}
+				else if(input.value === ' '){
+					alert('无法输入空格')
+				}
+				else{
+					wrap.style.display = '';
+					text1.style.display = '';
+					info.innerHTML = input.value;
+				}
+			};
+			cancle.onclick = function(){
+				text1.style.display = '';
+				wrap.style.display = '';
+			};
+		};
+
+
+
+
+	</script>
+</body>
+</html>

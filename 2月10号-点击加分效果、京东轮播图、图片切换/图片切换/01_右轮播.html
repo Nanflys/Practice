@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        #wrap{
+            width: 760px;
+            height: 590px;
+            margin: 50px auto;
+            background: url(imgs/bg.png);
+            overflow: hidden;
+        }
+        section{
+            width: 420px;
+            height: 320px;
+            border: 3px solid #fff;
+            margin: 173px auto 0;
+            overflow: -hidden;
+            position: relative;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            width: 200%;
+            position: absolute;
+            left: -420px;
+            /*left: 0px;*/
+            top: 0;
+        }
+        li{
+            list-style: none;
+            float: left;
+            position: relative;
+        }
+        img{
+            vertical-align: top;
+            width: 420px;
+            height: 320px;
+        }
+        a{
+            text-decoration: none;
+        }
+        #prev,#next{
+            width: 49px;
+            height: 63px;
+            line-height: 63px;
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+            background: black;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        #prev{
+            left: 0;
+        }
+        #next{
+            right: 0;
+        }
+        nav{
+            position: absolute;
+            bottom: 16px;
+            text-align: center;
+            width: 100%;
+        }
+        nav a{
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            margin: 0 5px;
+            display: inline-block;
+        }
+        nav .active{
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <section>
+            <ul id="banner">
+                <li><img src="imgs/5.jpg" /></li>
+                <li><img src="imgs/1.jpg" /></li>
+                <li><img src="imgs/2.jpg" /></li>
+                <li><img src="imgs/3.jpg" /></li>
+                <li><img src="imgs/4.jpg" /></li>
+                <li><img src="imgs/5.jpg" /></li>
+                <li><img src="imgs/1.jpg" /></li>
+            </ul>
+            <a href="javascript:;" id="prev">&lt;</a><a href="javascript:;" id="next">&gt;</a>
+            <nav class="navs">
+                <a href="javascript:;" class="active"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </nav>
+        </section>
+    </div>
+    <script src="../../JS/tools.js"></script>
+    <script>
+      var next = document.querySelector('#next');
+      var btns = document.querySelectorAll('.navs a');
+      var banner = document.querySelector('#banner');
+      
+      var now = 1, w = 420, len = btns.length;
+      
+      // 动态的设置banner的宽度
+      css(banner, 'width', (len + 2) * w);
+      
+      // 下一张切换
+      next.onclick = function (){
+        console.log(now);
+        
+        if(now == len + 1){
+          now = 1;
+          css(banner, 'left', -w);
+        }
+        now++;
+        // if(now > len + 1){
+        //   now = 2;
+        //   css(banner, 'left', -w);
+        // }
+        console.log(now);
+        //banner.style.left = -now * w + 'px';
+        mTween(banner, {left: -now * w}, 20, 'linear');
+      };
+      
+      
+    </script>
+</body>
+</html>

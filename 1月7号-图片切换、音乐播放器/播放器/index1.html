@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width:360px;
+				height: 600px;
+				background: url(img/bj.jpg);
+				background-size: 100% 100%;
+				margin: 0 auto;
+				position: relative;
+				transform: scale(0);
+			}
+			.zz{
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,.8);
+				position: absolute;
+			}
+			img{
+				border-color: none;
+			}
+			.zz img{
+				text-align: top;
+				width: 160px;
+				height: 160px;
+				border: 5px solid rgba(82,33,90,.6);
+				border-radius:50% ;
+				position: absolute;
+				top: 80px;
+				left: 100px;
+			}
+			
+			.text{
+				position: absolute;
+				height: 30px;
+				width: 100%;
+				text-align: center;
+				font: 20px/30px "微软雅黑";
+				color: rgba(255,255,255,.9);
+				top:320px
+			}
+			a{
+				text-decoration: none;
+			}
+			.prve,.next{
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				border-radius:50% ;
+				bottom: 100px;
+				opacity: 0.8;
+			}
+			.prve{
+				left: 20px;
+				background: url(img/prev.png);
+				background-size: 100% 100%;
+			}
+			.next{
+				right: 20px;
+				background: url(img/next.png);
+				background-size: 100% 100%;
+			}
+			.play,.pause{
+				position: absolute;
+				
+				border-radius:50% ;
+				bottom: 80px;
+				left: 130px;
+			}
+			.play{
+				width: 100px;
+				height: 100px;
+				background: url(img/play.png);
+				background-size: 100% 100%;
+			}
+			.pause{
+				width: 96px;
+				height: 96px;
+				border: 2px solid rgba(255,255,255,.8);
+				display: none;
+				background-color: rgba(0,0,0,.8);
+			}
+			i{
+				position: absolute;
+				width: 10px;
+				height: 40px;
+				background-color: rgba(255,255,255,.8);
+				top: 30px;
+			}
+			.i1{
+				left: 35px;
+			}
+			.i2{
+				right: 35px;
+			}
+			.span{
+				position: absolute;
+				top: 250px;
+				right: 20px;
+				width: 150px;
+				height: 40px;
+				background: url(img/kou3.png) repeat-x ;
+				background-size:100% 100%;
+				transform-origin:150px 10px;
+			}
+			.dw{
+				position: absolute;
+				width: 80px;
+				height: 80px;
+				background: url(img/20131104041855123.png);
+				background-size:100% 100%;
+				top: 250px;
+				left: 45%;
+
+			}
+			.x{
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background: url(img/x.png) no-repeat;
+				background-size:100% 100%;
+				right: 20px;
+				top: 20px;
+			}
+			.cb{
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background: url(img/cb.png) no-repeat;
+				background-size:100% 100%;
+				left: 20px;
+				top: 20px;
+				border-radius:50% ;
+			}
+			.cb .s1{
+				position: absolute;
+				border: 5px solid rgba(0,0,0,.0);
+				border-bottom-color: #FFFFFF;
+				bottom: -7px;
+				left: 5px;
+				transition: 1s linear;
+				opacity: 0;
+			}
+			.cb .s2{
+				position: absolute;
+				width: 50px;
+				font: 14px/30px "微软雅黑";
+				background: #FFFFFF;
+				bottom: -37px;
+				left: -12px;
+				border-radius:5px ;
+				text-align: center;
+				transition: 1s linear;
+				opacity: 0;
+			}
+			.cb:hover .s2{
+				opacity: 1;
+			}
+			.cb:hover .s1{
+				opacity: 1;
+			}
+			.x:hover .s1{
+				opacity: 1;
+			}
+			.x:hover .s2{
+				opacity: 1;
+			}
+			.x .s2{
+				position: absolute;
+				width: 50px;
+				font: 14px/30px "微软雅黑";
+				background: #FFFFFF;
+				bottom: -37px;
+				left: -12px;
+				border-radius:5px ;
+				text-align: center;
+				transition: 1s linear;
+				opacity: 0;
+			}
+			.x .s1{
+				position: absolute;
+				border: 5px solid rgba(0,0,0,.0);
+				border-bottom-color: #FFFFFF;
+				bottom: -7px;
+				left: 5px;
+				transition: 1s linear;
+				opacity: 0;
+			}
+			.sgg{
+				position: absolute;
+				width: 300px;
+				height: 8px;
+				background: rgba(255,255,255,.7);
+				top: 375px;
+				left: 29px;
+				border-radius:4px ;
+			}
+			.sgg span{
+				position: absolute;
+				width: 0%;
+				height: 4px;
+				background: #7900FF;
+				border-radius: 2px;
+				top:2px;
+			}
+			.dj{
+				position: absolute;
+				width: 300px;
+				height: 4px;
+				top: 2px;
+			}
+			.dj a{
+				float: left;
+				width: 3px;
+				height: 4px;
+			
+			}
+		</style>
+	</head>
+	<body>
+		<a class="dw" href="#"></a>
+		<div class="box">
+			<div class="zz">
+				<img class="img" src="img/ny.png"/>
+				<span class="span"></span>
+				<span class="text">默 - 那英</span>
+				<div class="sgg">
+					<span></span>
+					<div class="dj">
+					</div>
+				</div>
+				<a class="prve" href="#"></a>
+				<a class="next" href="#"></a>
+				<a class="pause" href="#">
+					<i class="i1"></i>
+					<i class="i2"></i>
+				</a>
+				<a class="play" href="#"></a>
+				<a class="cb" href="#">
+					<span class="s1"></span>
+					<span class="s2">重播</span>
+				</a>
+				<a class="x" href="#">
+					<span class="s1"></span>
+					<span class="s2">关闭</span>
+				</a>
+			</div>
+		</div>
+		<audio id="music">
+			<source  src="music/默.mp3" type="audio/mp3" value="默"></source>
+		</audio>
+		
+		<script>
+		
+			var music= document.getElementById('music');
+			var btnPlay = document.querySelector('.play');
+			var btnPause = document.querySelector('.pause');
+			var btnNext = document.querySelector('.next');
+			var btnPrey = document.querySelector('.prve');
+			var text = document.querySelector('.text');
+			var img=document.querySelector('.img');
+			var span=document.querySelector('span');
+			var dw=document.querySelector('.dw');
+			var box=document.querySelector('.box');
+			var btnCb=document.querySelector('.cb');
+			var btnX=document.querySelector('.x');
+			var sgz=document.querySelector('.sgg span');
+			var sgzz=document.querySelector('.sgg');
+			var dj=document.querySelector('.dj');
+			
+			var arr = ['music/默.mp3','music/人来人往.mp3','music/南山南.mp3',]
+			var arr1 = ['默 - 那英','人来人往 - 陈奕迅','南山南 - 马屿'];
+			var arr2=['img/ny.png','img/cyx.png','img/my.png'];
+			
+			var b=0,c=0,n=0,e=0,f=0;
+			var t=null,tt=null,ttt=null,tttt=null;
+			var wd;
+			var kg=false;
+			var len=arr.length
+			
+			for(var i=0;i<100;i++){
+				dj.innerHTML+='<a href="#"></a>'
+				
+			}
+			console.log(f)
+			btnPlay.onclick =btnPlay1;
+			function btnPlay1(){
+				music.play()
+				text.innerHTML=arr1[n]
+				img.src=arr2[n]
+				btnPlay.style.display='none';
+				btnPause.style.display='block';
+				sgz.style.width='';
+				setTimeout(function (){
+						t=setInterval(function(){
+						b++
+						img.style.transform='rotate('+b+'deg)';	
+					},10)
+				},500)
+				tt=setInterval(function (){
+					c++
+					span.style.transform='rotate('+c+'deg)';
+					if(c==45){
+						clearInterval(tt)
+					}
+				},10)
+				kg=true;
+				tttt=setInterval(function (){
+					f++;
+					sgz.style.width=f+'%'
+					if(f>=100){
+						clearInterval(tttt)
+					}
+				},Number.parseInt(music.duration)*10)//根据当前歌曲的时长去做重复的动作，就可以自动设置进度条的长度了
+				sgzz.style.display='block';
+				console.log(f)
+			};
+			
+			btnPause.onclick = function (){
+				music.pause();
+				btnPlay.style.display='block';
+				btnPause.style.display='none';
+				clearInterval(t)
+				kg=false;
+				tt=setInterval(function (){
+					c--
+					span.style.transform='rotate('+c+'deg)';
+					if(c==0){
+						clearInterval(tt)
+					}
+				},10)
+				clearInterval(tttt)
+			};
+			
+			btnNext.onclick = function (){
+				f=0
+				sgz.style.width=f+'%'
+				n++;
+				if(n > len-1){
+					n = 0
+				}
+				music.src = arr[n];
+				text.innerHTML=arr1[n]
+				img.src=arr2[n]
+				img.style.transform='rotate('+b+'deg)';
+				if(kg){
+					music.play();
+				}
+			};
+			
+			btnPrey.onclick = function (){
+				f=0
+				sgz.style.width=f+'%'
+				n--;
+				if(n<0){
+					n=len-1
+				}				
+				music.src = arr[n];
+				text.innerHTML=arr1[n]
+				img.src=arr2[n]
+				img.style.transform='rotate('+b+'deg)';
+				if(kg){
+					music.play();
+				}
+			};	
+			
+			dw.onclick=function (){
+				dw.style.display='none';
+				ttt=setInterval(function(){
+					e=e+0.1
+					box.style.transform='scale('+e+')';
+					if(e>=1){
+						clearInterval(ttt)
+						box.style.transform='scale(1)';
+					}
+				},50)
+			};
+		
+			btnCb.onclick=function (){
+				if(kg){
+				music.currentTime =0;
+				f=0
+				sgz.style.width=f+'%'
+				}
+			};
+			
+			btnX.onclick=function(){
+				b=0
+				c=0
+				music.currentTime ='';
+				music.pause();
+				box.style.transform='scale('+e+')';
+				clearInterval(ttt)
+				box.style.transform='scale(0)';
+				dw.style.display='block';
+				span.style.transform='rotate('+c+'deg)';
+				img.style.transform='rotate('+b+'deg)';
+				btnPlay.style.display='block';
+				btnPause.style.display='none';
+				clearInterval(t)
+				kg=false
+				f=0
+				sgzz.style.display='none';
+			};
+			var as=document.querySelectorAll('.dj a');
+			var w=0;
+			for(var i=1;i<as.length;i++){
+				(function (i){
+					as[i].onclick=function (){
+						f=i
+						sgz.style.width=f+'%'
+						w=Number.parseInt(music.duration)/100;
+						music.currentTime=f*w;
+						music.play()
+						btnPause.style.display='block'
+						btnPlay.style.display='none'
+					}
+				}
+				)(i)
+			}
+
+//			console.log(play())
+		</script>
+	</body>
+</html>

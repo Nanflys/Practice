@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body,
+		ul,
+		li,
+		h2 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {
+			list-style: none;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="qq.css" />
+</head>
+
+<body onselectstart="return false;">
+	<div class="wrap">
+		<div class="list">
+			<h2><span></span>我的好友</h2>
+			<ul>
+				<li>小佳Love</li>
+				<li>从来就是这么正经</li>
+				<li>leo是个胖子</li>
+				<li>momo不是陌陌</li>
+			</ul>
+			<h2><span></span>企业好友</h2>
+			<ul>
+				<li>习近平</li>
+				<li>普京</li>
+				<li>奥巴马</li>
+			</ul>
+			<h2><span></span>黑名单</h2>
+			<ul>
+				<li>安倍</li>
+				<li>杜特尔特</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		/**
+		 * 1 点击当前的标题让当前的标题加上一个class为active
+		 * 2 让当前标题的小箭头可以随着点击而变换
+		 * 3 当标题对应的列表可以随着点击 展开和收缩
+		 */
+		// ---------------------------
+		// 先获取到需要的元素
+		// 标题
+		var h2s = document.querySelectorAll('.list h2');
+		// 小箭头
+		var allows =document.querySelectorAll('.list span');
+		// 列表
+		var lists = document.querySelectorAll('.list ul');
+		
+		// ----------------------------
+		// 操作一组元素 并且 做的事情是大同小异的 所有用for
+		
+		var prev = 0;
+		
+		for(var i=0; i<h2s.length; i++){
+			// 给每个h2添加索引值，方便在调用函数的时候找到触发函数这个对象的编号（下标）
+			h2s[i].index = i;
+			// 当操作一组元素的时候，需要同一个类似那个的变量去分别控制每一个，就需要用到
+			// 自定义属性
+			h2s[i].off = true;
+			h2s[i].onclick = function (){
+				if(this.off){
+					// 清掉h2s中的上一个 class
+					h2s[prev].className = '';
+					// 清掉上一个箭头的class
+					allows[prev].className = '';
+					// 让上一个标题对应的列表隐藏
+					lists[prev].style.display = '';
+					// 将上一个对应的自定义属性off变回初始状态true
+					h2s[prev].off = true;
+					
+					// 给当前点击的这个this标题添加class
+					this.className = 'active';
+					// 给当前标题对应的箭头添加class
+					allows[this.index].className = 'active';
+					// 让当前标题对应的列表展开
+					lists[this.index].style.display = 'block';
+					
+					// 点击谁，那么谁就会变成上一个
+					prev = this.index;
+					
+					//this.off = false;
+				}else{
+					this.className = '';
+					allows[this.index].className = '';
+					lists[this.index].style.display = '';
+					//this.off = true;
+				}
+				this.off = !this.off;
+				
+				console.log(this.index);
+			};
+		}
+		
+		/**
+		 * 1 鼠标移入每一个子项 变色
+		 * 2 鼠标移出每一个子项 恢复
+		 * 3 鼠标点击每一个子项 一直变色，没有hover效果
+		 */
+		// 获取到所有子项
+		var lis = document.querySelectorAll('.list li');
+		
+		// 定义上一个的下标
+		var children = 0;
+		
+		for(var i=0, len = lis.length; i<len; i++){
+			// 默认全部是未选中的 所以给每个子项添加自定义属性 false，也就是说
+			// 如果某个子项被选中了，它身上的 select 就有fasle变为true
+			lis[i].select = false;
+			// 为了找到函数内 被点击的这个子项对应的索引（下标）
+			lis[i].index = i;
+			// 鼠标移入
+			lis[i].onmouseover = function (){
+				// 如果没被选中就添加class  这里的!this.select一开始的时候就是
+				// !false == true 所以会走if
+				if(!this.select){
+					this.className = 'active';
+				}
+			};
+			// 鼠标移出
+			lis[i].onmouseout = function (){
+				if(!this.select){
+					this.className = ''
+				}
+			};
+			// 鼠标点击
+			lis[i].onclick = function (){
+				// 上一个class清掉
+				lis[children].className = '';
+				// 因为false对应的是未选中，那么清掉上一个class相当于未选中状态
+				// 所以还有把它身上的自定义属性 变回默认状体
+				lis[children].select = false;
+				// 让当前的选中的这个子项身上的select变为true，证明被选中了
+				// 作用是 一旦被选中 那么 鼠标移入和移出里面的if里面的条件就
+				// 不成立了，也就不会再有hover效果了
+				this.select = true;
+				// 给当前点击的这个子项添加class
+				this.className = 'selected';
+				// 因为使用清空上一个的思路，所以点击当前这个，那么当前
+				// 这个就会变成点击下一个的上一个
+				// 所以每次都要更新以下
+				children = this.index;
+			};
+		}
+	</script>
+</body>
+
+</html>

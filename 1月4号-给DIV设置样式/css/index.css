@@ -1,0 +1,225 @@
+body{
+    width:100%;
+    height:100%;
+    margin:0;
+}
+a{
+    text-decoration:none;
+}
+ul{
+    margin:auto;
+    padding:0;
+    list-style:none;
+}
+button{
+    border:none;
+}
+#content{
+    width:800px;
+    height:600px;
+    margin:100px auto;
+}
+#box{
+    font-size:0;
+}
+#info{
+    display:inline-block;
+    font:48px/60px "微软雅黑";
+    color:#000;
+}
+#text{
+    display:inline-block;
+    font:24px/60px "微软雅黑";
+    color:#fff;
+    background:red;
+    width:200px;
+    height:60px;
+    text-align:center;
+    margin-left:20px;
+}
+#wrap{
+    width:200px;
+    height:200px;
+    border:6px solid #000;
+    transition:0.5s;
+}
+#item{
+    display:none;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.3);
+    position:absolute;
+    left:0;
+    top:0;
+}
+#item_box{
+    background:#fff;
+    border:30px solid rgba(0,0,0,.1);
+    position:absolute;
+    right:100px;
+    bottom:100px;
+}
+#item_list{
+    font-size:0;
+    padding:30px;
+}
+#item_title{
+    display:inline-block;
+    font:20px/40px arial,"微软雅黑";
+    color:#000;
+}
+.item_info{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#one{
+    background:#f40808;
+    color:#fff;
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#one:hover{
+    background:#ef9400;
+}
+#two{
+    background:#e4eb2d;
+    color:#fff;
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#two:hover{
+    background:#ef9400;
+}
+#three{
+    background:#3164f8;
+    color:#fff;
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#three:hover{
+    background:#ef9400;
+}
+#four{
+    background:rgba(0,0,0,.2);
+    color:rgba(0,0,0,.6);
+    border:1px solid rgba(0,0,0,.7);
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#four:hover{
+    background:#ef9400;
+}
+#five{
+    background:rgba(0,0,0,.2);
+    color:rgba(0,0,0,.6);
+    border:1px solid rgba(0,0,0,.7);
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#five:hover{
+    background:#ef9400;
+}
+#six{
+    background:rgba(0,0,0,.2);
+    color:rgba(0,0,0,.6);
+    border:1px solid rgba(0,0,0,.7);
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#six:hover{
+    background:#ef9400;
+}
+#seven{
+    background:rgba(0,0,0,.2);
+    color:rgba(0,0,0,.6);
+    border:1px solid rgba(0,0,0,.7);
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#seven:hover{
+    background:#ef9400;
+}
+#eight{
+    background:rgba(0,0,0,.2);
+    color:rgba(0,0,0,.6);
+    border:1px solid rgba(0,0,0,.7);
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#eight:hover{
+    background:#ef9400;
+}
+#nine{
+    background:rgba(0,0,0,.2);
+    color:rgba(0,0,0,.6);
+    border:1px solid rgba(0,0,0,.7);
+    display:inline-block;
+    width:50px;
+    height:40px;
+    font:20px/40px arial,"微软雅黑";
+    text-align:center;
+    margin-left:10px;
+}
+#nine:hover{
+    background:#ef9400;
+}
+#button{
+    font-size:0;
+    text-align:center;
+}
+#first{
+    display:inline-block;
+    font:30px/50px "微软雅黑";
+    color:#fff;
+    width:100px;
+    height:50px;
+    background:#002952;
+    text-align:center;
+    margin:15px;
+}
+#second{
+    display:inline-block;
+    font:30px/50px "微软雅黑";
+    color:#fff;
+    width:100px;
+    height:50px;
+    background:#002952;
+    text-align:center;
+    margin:15px;
+}

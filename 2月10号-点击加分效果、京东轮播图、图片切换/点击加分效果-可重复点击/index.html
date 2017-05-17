@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			body{
+				margin: 0;
+			}
+			.main {
+				width: 1200px;
+				height: 800px;
+				background: url(./image/bg.png) no-repeat;
+				margin: 0 auto;
+				overflow:hidden;
+				text-align: center;
+			}
+
+			.clearFix:after{
+				display: block;
+				content: '';
+				clear: both;
+				visibility: hidden;
+			}
+			
+			.photos{
+				margin-top: 342px;
+				display: inline-block;
+			}
+
+			.Beauty{
+				margin:2px 0 0 2px;
+				width: 237px;
+				height: 259px;
+				float: left;
+				position: relative;
+			}
+			.love {
+				text-decoration: none;
+				width: 100px;
+				height: 104px;
+				position: absolute;
+				left: 68px;
+				top: -35px;
+				background: url(./image/love.png) no-repeat;
+				font-size: 20px;
+				color: #fff;
+				line-height: 100px;
+				font-family: Arial;
+			}
+			.love:hover {
+				background-position: -137px;
+			}
+			.heart {
+				width: 32px;
+				height: 27px;
+				position: absolute;
+				left: 101px;
+				top: -60px;
+				background: url(./image/heart.png) no-repeat;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="photos clearFix">
+				<div class="Beauty">
+					<a href="javascript:;" class="love">+1</a>
+					<div class="heart"></div>
+					<img src="./image/meinv2.png" />
+				</div>
+				<div class="Beauty">
+					<a href="javascript:;" class="love">+1</a>
+					<div class="heart"></div>
+					<img src="./image/meinv2.png" />
+				</div>
+				<div class="Beauty">
+					<a href="javascript:;" class="love">+1</a>
+					<div class="heart"></div>
+					<img src="./image/meinv2.png" />
+				</div>
+
+				<div class="Beauty">
+					<a href="javascript:;" class="love">+1</a>
+					<div class="heart"></div>
+					<img src="./image/meinv2.png" />
+				</div>
+			</div>
+		</div>
+		<script src="js/tools.js"></script>
+		<script>
+			var loves = document.querySelectorAll('.love');
+			var hearts = document.querySelectorAll('.heart');
+			
+			for(var i=0, len = loves.length; i<len; i++){
+				(function (i){
+					loves[i].onclick = function (){
+						if(hearts[i].timer){
+							return;
+						}
+						this.innerHTML = '+' + ++this.innerHTML;
+						// 让对应的小心心显示
+						css(hearts[i], 'display', 'block');
+						// 要做的运动
+						//hearts[i].style.top = -130 + 'px';
+						//hearts[i].style.opacity = 0;
+						mTween(hearts[i], {
+							top: -130,
+							opacity: 0
+						}, 20, 'easeOut', function (){
+							css(hearts[i], {
+								top: -60,
+								display: '',
+								opacity: 1
+							});
+						})
+					};
+				})(i)
+			}
+		
+		</script>
+	</body>
+</html>

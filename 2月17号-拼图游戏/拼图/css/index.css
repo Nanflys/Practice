@@ -1,0 +1,17 @@
+body{
+	margin: 0;
+}
+.wrap{
+	position: relative;
+	width: 1631px;
+	height: 919px;
+}
+.wrap div{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000000;
+	background: url(../img/17.jpg) no-repeat;
+	background-size: 1600px 900px;
+	transition: 500ms;
+}

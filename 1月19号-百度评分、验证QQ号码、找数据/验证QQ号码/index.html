@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			html {
+				height: 100%;
+			}
+			body{
+				margin: 0;
+				height: 100%;
+				font-family: '微软雅黑';
+			}
+			.main {
+				width: 100%;
+				height: 100%;
+				background: -webkit-linear-gradient( left,#ada994,#e59a9b);
+				overflow:hidden;
+			}
+			.content {
+				width: 478px;
+				height: 208px;
+				background: url(./image/bg.png) no-repeat;
+				margin: 30px auto;
+				overflow:hidden;
+			}
+			.testQQ {
+				width: 400px;
+				height: 40px;
+				margin: 80px auto 0;
+				font-size: 16px;
+				color: #fff;
+			}
+			.testQQ label {
+				margin-right: 4px;
+			}
+
+			.testQQ input {
+				border-radius: 5px;
+			}
+			
+			.testQQ input[type='button']{
+				height: 40px;
+				width: 70px;
+				background: #000;
+				border: none;
+				color: #fff;
+				font-size: 16px;
+				margin-left: 10px;
+			}
+
+			.inputText {
+				padding-left: 5px;
+				width: 175px;
+				height: 40px;
+				border: none;
+			}
+			.tips {
+				width: auto;
+				height: 40px;
+				background: #9a4e79;
+				line-height: 40px;
+				text-align: center;
+				font-size: 16px;
+				color: #fff776;
+				border-radius: 5px;
+				position: relative;
+				left: 167px;
+				top:15px;
+				float: left;
+				display: none;
+			}
+			.tip {
+				padding:0px 10px;
+				display: block;
+			}
+			#san {
+				width: 0px;
+				height: 0;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-bottom: 5px solid #9a4e79;
+				position: absolute;
+				left: 18px;
+				top: -5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="content">
+				<div class="testQQ">
+					<label>请输入QQ号码：</label>
+					<input class="inputText" />
+					<input type="button" value="检测" class="btn" />
+				</div>
+				<div class="tips">
+					<div id="san"></div>
+					<span class="tip">输入的不是数字</span>
+				</div>
+			</div>
+		</div>
+		<script>
+			var text = document.querySelector('.inputText');
+			var btn = document.querySelector('.btn');
+			var tips = document.querySelector('.tips');
+			var tip = document.querySelector('.tip');
+			
+			btn.onclick = function (){
+				// 点击的时候让提示框显示
+				tips.style.display = 'block';
+				// 拿到输入的内容
+				var val = text.value;
+				// 判断输入的内容是否为空
+				if(val == ''){
+					tip.innerHTML = '请输入内容!';
+				}else if(isNumber(val)){
+					tip.innerHTML = '输入的必须都是数字！';
+				}else if(val[0] === '0'){
+					tip.innerHTML = '第一个数字不能是0';
+				}else if(val[0] === ' ' || val[val.length - 1] === ' '){
+					tip.innerHTML = '前后不能有空格!';
+				}else if(val.length < 5 || val.length > 12){
+					tip.innerHTML = '请输入5-12位数字';
+				}else{
+					tip.innerHTML = '恭喜你少年，开撸吧！';
+				}
+			};
+			
+			function isNumber(str){
+				var res = false;
+				for(var i=0,len=str.length; i<len; i++){
+					if(Number.isNaN(str[i]*1)){
+						res = true;
+						break;
+					}
+				}
+				return res;
+			}
+			
+		</script>
+	</body>
+</html>

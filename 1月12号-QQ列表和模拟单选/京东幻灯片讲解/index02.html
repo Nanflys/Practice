@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" type="text/css" href="slide.css" />
+		<style type="text/css">
+			body{
+				background-color: #ffd800;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="slide">
+			<div class="pic">
+				<img src="ads/1.png" />
+			</div>
+			<div class="prev"></div>
+			<div class="next"></div>
+			<div class="nav">
+				<span>
+					<a href="javascript:;">
+						<img src="ads/1.png"/>
+					</a>
+				</span>
+			</div>
+		</div>
+	</body>
+	<script>
+		var data = ['ads/1.png','ads/2.png','ads/3.png','ads/4.png','ads/5.png'];
+		
+		var len = data.length, n = 0;
+		
+		// 利用数据去生成结构
+		function createData(){
+			var picWrap = document.querySelector('.pic');
+			var nav = document.querySelector('.nav');
+			
+			var pic_ = '', nav_ = '';
+			
+			for(var i=0; i<len; i++){
+				pic_ += '<img src="'+data[i]+'" />';
+				nav_ += '<span><a href="javascript:;"><img src="'+data[i]+'"/></a></span>'
+			}
+			picWrap.innerHTML = pic_;
+			nav.innerHTML = nav_;
+		}
+		
+		createData();
+		
+		// ----------------------------------------
+		var slides = document.querySelectorAll('.pic img'),
+				navs = document.querySelectorAll('.nav span'),
+				viewImgs = document.querySelectorAll('.nav a');
+				
+		showImg();
+		tabPrev();
+		tabNext();
+		navImg();
+				
+		// 切换图同时负责初始化图片
+		function showImg(){
+			for(var i=0; i<len; i++){
+				slides[i].style.opacity = '';
+				navs[i].className = '';
+			}
+			slides[n].style.opacity = 1;
+			navs[n].className = 'active';
+		}
+		
+		// 切换上一张
+		function tabPrev(){
+			var prev = document.querySelector('.prev');
+			prev.onclick = function (){
+				n--;
+				if(n < 0){
+					n = len - 1;
+				}
+				showImg();
+			};
+		}
+		
+		function tabNext(){
+			var next = document.querySelector('.next');
+			next.onclick = function (){
+				n++;
+				if(n > len - 1){
+					n = 0;
+				}
+				showImg();
+			};
+		}
+		
+		// 点击按钮控制图片切换
+		function navImg(){
+			for(var i=0; i<len; i++){
+				navs[i].index = i;
+				navs[i].onclick = function (){
+					n = this.index;
+					showImg();
+				};
+				navs[i].onmouseover = function (){
+					viewImgs[this.index].style.display = 'block';
+				};
+				navs[i].onmouseout = function (){
+					viewImgs[this.index].style.display = '';
+				};
+			}
+		}
+	</script>
+</html>

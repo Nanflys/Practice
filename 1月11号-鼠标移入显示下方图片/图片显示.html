@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.box{
+			position:relative;
+		}
+		span{
+			width:80px;
+			height:80px;
+			position:absolute;
+			font:30px/100px arial;
+			text-align:center;
+			background:url(a2.jpg) no-repeat -400px -300px;
+			opacity:0.1;
+			transition:0.5s;
+			transform:scale(1);
+		}
+		.hover{
+			opacity:1;
+			transform:scale(1.3);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript">
+		var oBox = document.querySelector('.box');
+		var arrColor = ['#f12945','#f16f29','#f1ef29','#40f129','#2979f1'];
+
+
+		var str = '';
+		for(var i = 0 ; i < 100 ; i++ ){
+			str +='<span style="left:'+((i%10)*82)+'px;top:'+(((i/10)-((i%10)/10))*82)+'px;background-position:'+(-(i%10)*82)+'px '+(-((i/10)-((i%10)/10))*82)+'px;"></span>';
+			// spans[i].onmouseover = function(){
+			// 	spans[i].style = 'opacity:1;transform:scale(1.2);';
+			// };
+		}
+		oBox.innerHTML = str;
+		var spans = document.querySelectorAll('.box span');
+		for(var n = 0 ; n < spans.length ; n++){
+			spans[n].onmouseover = function(){
+				// this.style.opacity = '1';
+				// this.style.transform = 'scale(1.5)';
+				this.className = 'hover';
+			};
+			spans[n].onmouseout = function(){
+				this.style.transform = 'scale(1)';
+			};
+		}
+
+
+
+//第一排的left值依次增加51px，top值为0；
+//背景颜色background:'+arrColor[(i%arrColor.length)]+';
+	</script>
+</body>
+</html>
